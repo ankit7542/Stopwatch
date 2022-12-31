@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", function () {
+    // Creating button
     const stopWatch = document.getElementById("stopWatch");
     const startBtn = document.getElementById("start");
     const stopBtn = document.getElementById("stop");
@@ -15,7 +16,7 @@ window.addEventListener("DOMContentLoaded", function () {
     function unDisabled(...elems) {
         elems.forEach((elem) => elem.removeAttribute("disabled"));
     }
-
+    // function for display timer
     function displayTime() {
         seconds++;
 
@@ -32,14 +33,14 @@ window.addEventListener("DOMContentLoaded", function () {
                 }
             }
         }
-
+        // variables
         let h = hours < 10 ? "0" + hours : hours;
         let m = minutes < 10 ? "0" + minutes : minutes;
         let s = seconds < 10 ? "0" + seconds : seconds;
 
         stopWatch.innerHTML = `${h} : ${m} : ${s}`;
     }
-
+    // Start Button
     startBtn.addEventListener("click", () => {
         if (startTimer !== null) {
             clearInterval(startTimer);
@@ -50,14 +51,14 @@ window.addEventListener("DOMContentLoaded", function () {
         disabled(startBtn);
         unDisabled(stopBtn, resetBtn);
     });
-
+    // Stop Button
     stopBtn.addEventListener("click", function () {
         clearInterval(startTimer);
 
         disabled(stopBtn);
         unDisabled(startBtn);
     });
-
+    // Reset Button
     resetBtn.addEventListener("click", function () {
         clearInterval(startTimer);
 
